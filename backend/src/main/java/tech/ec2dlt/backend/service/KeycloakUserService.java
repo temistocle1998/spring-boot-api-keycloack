@@ -4,12 +4,9 @@ import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
 import org.keycloak.admin.client.resource.UsersResource;
 import org.keycloak.representations.idm.UserRepresentation;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
 import java.util.Collections;
 import java.util.List;
-
 import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.NotFoundException;
 
@@ -23,7 +20,6 @@ public class KeycloakUserService {
 	}
 
 	// Méthode pour récupérer tous les utilisateurs
-
 	public List<UserRepresentation> getAllUsers() {
 		try {
 			UsersResource usersResource = keycloak.realm(realm).users();
@@ -50,6 +46,10 @@ public class KeycloakUserService {
 	public void updateUser(UserRepresentation userRepresentation) {
 		keycloak.realm(realm).users().get(userRepresentation.getId()).update(userRepresentation);
 	}
+
+	public void getCurrentUser() {
+	}
+
 
 
 	public KeycloakBuilder newKeycloakBuilderWithPasswordCredentials(String username, String password) {

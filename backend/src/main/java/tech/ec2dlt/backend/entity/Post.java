@@ -7,6 +7,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "posts")
 public class Post {
@@ -15,11 +17,19 @@ public class Post {
 	private int id;
 	@Column(name = "title")
 	private String title;
-	@Column(name = "date")
-	private String date;
+	@Column(name = "description")
+	private String description;
 
 	public int getId() {
 		return id;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getTitle() {
@@ -29,13 +39,4 @@ public class Post {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
-	}
-
 }
